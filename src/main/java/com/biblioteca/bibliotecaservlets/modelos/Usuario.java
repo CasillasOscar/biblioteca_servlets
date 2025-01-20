@@ -1,5 +1,6 @@
 package com.biblioteca.bibliotecaservlets.modelos;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -34,6 +35,7 @@ public class Usuario {
     private LocalDate penalizacionHasta;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonManagedReference
     private Set<Prestamo> prestamos = new LinkedHashSet<>();
 
     public Integer getId() {

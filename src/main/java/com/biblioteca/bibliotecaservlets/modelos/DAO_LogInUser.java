@@ -22,5 +22,14 @@ public class DAO_LogInUser extends DAO_Generico<Usuario,String>{
 
         return query.getSingleResultOrNull();
     }
+
+    public Usuario getByEmail(Usuario user){
+        TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email", Usuario.class);
+        query.setParameter("email", user.getEmail());
+
+        return query.getSingleResultOrNull();
+    }
+
+
     }
 

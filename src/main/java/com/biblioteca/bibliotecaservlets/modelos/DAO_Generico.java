@@ -45,7 +45,7 @@ public class DAO_Generico<T,ID> {
             return objeto;
         }
         //DELETE WHERE objeto.id
-        public void deleteUsuario(T objeto){
+        public void delete(T objeto){
             tx.begin();
             objeto = em.merge(objeto);
             em.remove(objeto);

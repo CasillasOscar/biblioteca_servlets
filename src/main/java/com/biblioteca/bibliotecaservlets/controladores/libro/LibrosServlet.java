@@ -1,10 +1,9 @@
-package com.biblioteca.bibliotecaservlets.controladores;
+package com.biblioteca.bibliotecaservlets.controladores.libro;
 
 
 import com.biblioteca.bibliotecaservlets.modelos.DAOLibros;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.biblioteca.bibliotecaservlets.modelos.DAO_Generico;
 import com.biblioteca.bibliotecaservlets.modelos.Libro;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,7 +21,6 @@ public class LibrosServlet extends HttpServlet {
         DAOLibros daoLibro;
 
     public void init(){
-
 
         daoLibro = new DAOLibros();
     }

@@ -1,8 +1,7 @@
-package com.biblioteca.bibliotecaservlets.controladores;
+package com.biblioteca.bibliotecaservlets.controladores.libro;
 
 
 import com.biblioteca.bibliotecaservlets.modelos.DAOLibros;
-import com.biblioteca.bibliotecaservlets.modelos.DAO_Generico;
 import com.biblioteca.bibliotecaservlets.modelos.Libro;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -13,8 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.MessageFormat;
-import java.util.List;
 
 @WebServlet(name = "librosAdd", value = "/add-libro")
 public class Add_LibroSv extends HttpServlet {
@@ -52,13 +49,24 @@ public class Add_LibroSv extends HttpServlet {
             libro.setIsbn(isbn);
             libro.setAutor(autor);
 
-            daoLibro.add(libro);
+            Libro libro2 = daoLibro.getByISBN(libro.getIsbn());
 
-            System.out.println("En java" + libro);
+            if(libro2 == null){
 
-            String json_response = conversorJson.writeValueAsString(libro);
-            System.out.println("En java json" + json_response);
-            impresora.println(json_response);
+                daoLibro.add(libro);
+
+                System.out.println("En java" + libro);
+
+                String json_response = conversorJson.writeValueAsString(libro);
+                System.out.println("En java json" + json_response);
+                impresora.println(json_response);
+
+            } else {
+
+                impresora.println(conversorJson.writeValueAsString("El isbn ya existe"));
+            }
+
+
         }
 
     }

@@ -1,4 +1,4 @@
-package com.biblioteca.bibliotecaservlets.controladores;
+package com.biblioteca.bibliotecaservlets.controladores.libro;
 
 
 import com.biblioteca.bibliotecaservlets.modelos.DAOLibros;
@@ -58,7 +58,7 @@ public class Delete_LibroSv extends HttpServlet {
                     String json_response = conversorJson.writeValueAsString(libro);
                     impresora.println(json_response);
 
-                    daoLibro.deleteUsuario(libro);
+                    daoLibro.delete(libro);
 
                 }
 
@@ -80,7 +80,7 @@ public class Delete_LibroSv extends HttpServlet {
                     String json_response = conversorJson.writeValueAsString(libro);
                     impresora.println(json_response);
 
-                    daoLibro.deleteUsuario(libro);
+                    daoLibro.delete(libro);
                 }
             }
         }

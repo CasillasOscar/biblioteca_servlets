@@ -1,4 +1,4 @@
-package com.biblioteca.bibliotecaservlets.controladores;
+package com.biblioteca.bibliotecaservlets.controladores.libro;
 
 import com.biblioteca.bibliotecaservlets.modelos.DAOLibros;
 import com.biblioteca.bibliotecaservlets.modelos.Libro;
